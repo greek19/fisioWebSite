@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import {Navbar} from "./components/Navbar";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+import Testimonials from "./components/Testimonials";
+import About from "./components/About";
+import Services from "./components/Services";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [activeSection, setActiveSection] = useState('home');
+
+    useEffect(()=>{
+        const sections = document.querySelectorAll('section[id]');
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActiveSection(entry.target.id);
+            });
+        }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+        sections.forEach(s => observer.observe(s));
+        return () => observer.disconnect();
+    },[]);
+
+    return (
+        <div>
+            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+            <main>
+                <Hero />
+                <About />
+                <Services />
+                <Testimonials />
+                <Contact />
+            </main>
+            <Footer />
+        </div>
+    );
 }
-
-export default App;
