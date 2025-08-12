@@ -2,11 +2,6 @@ import Slider from "./Slider";
 
 export default function Services() {
     const services = []
-    const servicesOld = [
-        { title: "Fisioterapia", desc: "Trattamenti mirati per dolori e riabilitazione." },
-        { title: "Massoterapia", desc: "Massaggi terapeutici per muscoli e articolazioni." },
-        { title: "Riabilitazione post-trauma", desc: "Percorsi personalizzati di recupero." },
-    ];
 
     return (
         <section id="services" className="py-16 bg-gray-50">
