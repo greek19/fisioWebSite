@@ -95,9 +95,9 @@
 
 @media (max-width: 576px) {
     .card-custom {
-        margin-top: 20% !important;
+        margin-top: 25% !important;
         margin-left: 5%;
-        max-width: 90%;
+        max-width: 85% !important;
     }
 
     .content {
