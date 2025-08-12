@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
     return (
-        <section id="about" className="py-5">
+        <section id="chi sono" className="py-5">
             <div className="container">
                 <div className="row g-4 align-items-center">
                     <div className="col-md-5">

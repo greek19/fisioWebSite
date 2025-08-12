@@ -7,7 +7,7 @@ export default function Contact() {
         alert('Simulazione invio\n' + JSON.stringify(form, null, 2));
     };
     return (
-        <section id="contact" className="py-5 bg-light">
+        <section id="contatti" className="py-5 bg-light">
             <div className="container">
                 <h2 className="text-center fw-bold title-primary mb-4">Contatti</h2>
                 <div className="row justify-content-center">

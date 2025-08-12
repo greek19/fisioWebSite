@@ -4,7 +4,7 @@ export default function Services() {
     const services = []
 
     return (
-        <section id="services" className="py-16 bg-gray-50">
+        <section id="servizi" className="py-16 bg-gray-50">
             <h2 className="text-3xl font-bold text-center mb-10 title-primary">
                 Servizi Offerti
             </h2>
