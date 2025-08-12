@@ -13,7 +13,7 @@ export default function Slider() {
             gradient: "linear-gradient(to right, var(--primary-dark), var(--primary-color))"
         },
         {
-            title: "Tecar terapia",
+            title: "Tecarterapia",
             description: "Terapia ad energia capacitiva e resistiva",
             gradient: "linear-gradient(to right, var(--primary-light), var(--primary-color))"
         },
@@ -41,7 +41,18 @@ export default function Slider() {
             title: "Riabilitazione ortopedica",
             description: "Recupero post-traumatico e post-chirurgico",
             gradient: "linear-gradient(180deg, var(--primary-dark), var(--primary-color))"
+        },
+        {
+            title: "Magnetoterapia",
+            description: "Terapia con campi magnetici per il recupero osseo e muscolare",
+            gradient: "linear-gradient(to right, var(--primary-light), var(--primary-dark))"
+        },
+        {
+            title: "Onde d'urto",
+            description: "Trattamento non invasivo per patologie muscolotendinee",
+            gradient: "linear-gradient(to left, var(--primary-color), var(--primary-light))"
         }
+
     ];
 
     return (

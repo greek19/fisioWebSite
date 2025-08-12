@@ -33,8 +33,16 @@ export default function Contact() {
                                 </form>
                             </div>
                         </div>
-                        <div className="text-center text-muted small mt-3">Oppure telefona al <strong>+39 333 123 4567</strong></div>
-                    </div>
+                        <div className="text-center text-muted small mt-3">
+                            Oppure <a
+                            href="https://wa.me/393270504967"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-decoration-none fw-bold text-success"
+                        >
+                            contattami su WhatsApp al +39 327 050 4967
+                        </a>
+                        </div>                    </div>
                 </div>
             </div>
         </section>
