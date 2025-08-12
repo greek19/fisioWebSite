@@ -26,7 +26,7 @@ export function Navbar({ activeSection, setActiveSection }) {
         >
             <div className="container">
                 <a
-                    className="navbar-brand fw-bold text-primary-custom"
+                    className="navbar-brand fw-bold fw-900 text-primary-custom"
                     href="#home"
                     onClick={(e) => handleNavClick(e, 'home')}
                 >
@@ -44,10 +44,10 @@ export function Navbar({ activeSection, setActiveSection }) {
 
                 <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
                     <ul className="navbar-nav ms-auto mb-2 mb-md-0">
-                        {['home','about','services','testimonials','contact'].map((id) => (
-                            <li className="nav-item" key={id}>
+                        {['home','chi sono','servizi','contatti'].map((id) => (
+                            <li className="nav-item " key={id}>
                                 <a
-                                    className={`nav-link ${activeSection === id ? 'active fw-bold text-primary-custom' : ''}`}
+                                    className={`nav-link ${activeSection === id ? 'active fw-bold text-primary-custom' : 'fw-bold'}`}
                                     href={`#${id}`}
                                     onClick={(e) => handleNavClick(e, id)}
                                 >
