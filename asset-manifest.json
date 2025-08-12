@@ -1,16 +1,18 @@
 {
   "files": {
     "main.css": "/fisioWebSite/static/css/main.87414477.css",
-    "main.js": "/fisioWebSite/static/js/main.9a100991.js",
+    "main.js": "/fisioWebSite/static/js/main.03fd6ba0.js",
     "static/js/453.2fd0a780.chunk.js": "/fisioWebSite/static/js/453.2fd0a780.chunk.js",
     "static/media/front.jpg": "/fisioWebSite/static/media/front.67f4f8ad4993774a357c.jpg",
+    "static/media/studio2.jpg": "/fisioWebSite/static/media/studio2.dc68f568786fe9a2796b.jpg",
+    "static/media/studio1.jpg": "/fisioWebSite/static/media/studio1.e9dde0a63677dfb4b52b.jpg",
     "index.html": "/fisioWebSite/index.html",
     "main.87414477.css.map": "/fisioWebSite/static/css/main.87414477.css.map",
-    "main.9a100991.js.map": "/fisioWebSite/static/js/main.9a100991.js.map",
+    "main.03fd6ba0.js.map": "/fisioWebSite/static/js/main.03fd6ba0.js.map",
     "453.2fd0a780.chunk.js.map": "/fisioWebSite/static/js/453.2fd0a780.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.87414477.css",
-    "static/js/main.9a100991.js"
+    "static/js/main.03fd6ba0.js"
   ]
 }
