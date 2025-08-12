@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/fisioWebSite/static/css/main.abf5b7dc.css",
-    "main.js": "/fisioWebSite/static/js/main.ba9cf166.js",
-    "static/js/453.7b25276a.chunk.js": "/fisioWebSite/static/js/453.7b25276a.chunk.js",
+    "main.css": "/fisioWebSite/static/css/main.d6d321e7.css",
+    "main.js": "/fisioWebSite/static/js/main.fa8a5740.js",
+    "static/js/453.2fd0a780.chunk.js": "/fisioWebSite/static/js/453.2fd0a780.chunk.js",
+    "static/media/front.jpg": "/fisioWebSite/static/media/front.67f4f8ad4993774a357c.jpg",
     "index.html": "/fisioWebSite/index.html",
-    "main.abf5b7dc.css.map": "/fisioWebSite/static/css/main.abf5b7dc.css.map",
-    "main.ba9cf166.js.map": "/fisioWebSite/static/js/main.ba9cf166.js.map",
-    "453.7b25276a.chunk.js.map": "/fisioWebSite/static/js/453.7b25276a.chunk.js.map"
+    "main.d6d321e7.css.map": "/fisioWebSite/static/css/main.d6d321e7.css.map",
+    "main.fa8a5740.js.map": "/fisioWebSite/static/js/main.fa8a5740.js.map",
+    "453.2fd0a780.chunk.js.map": "/fisioWebSite/static/js/453.2fd0a780.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.abf5b7dc.css",
-    "static/js/main.ba9cf166.js"
+    "static/css/main.d6d321e7.css",
+    "static/js/main.fa8a5740.js"
   ]
 }
