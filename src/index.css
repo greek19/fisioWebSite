@@ -1,6 +1,17 @@
+:root {
+  --primary-color: #800020;
+  --primary-dark: #5e0018;
+  --primary-light: #a83244;
+  --text-color: #333333;
+  --background-color: #ffffff;
+}
+
 html { scroll-behavior: smooth; }
 
-body { background: #ffffff; margin: 0; }
+body {
+  background:var(--primary-color);
+  margin: 0;
+}
 
 .hero {
   min-height: 100vh;
@@ -15,6 +26,39 @@ body { background: #ffffff; margin: 0; }
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Titoli */
+.title-primary {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Testo primario */
+.text-primary-custom {
+  color: var(--primary-color) !important;
+}
+
+/* Pulsanti */
+.btn-primary-custom {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Link */
+.link-primary-custom {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.link-primary-custom:hover {
+  color: var(--primary-dark);
 }
 
 @media (max-width: 767px) {

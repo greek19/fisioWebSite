@@ -26,11 +26,12 @@ export function Navbar({ activeSection, setActiveSection }) {
         >
             <div className="container">
                 <a
-                    className="navbar-brand fw-bold text-success"
+                    className="navbar-brand fw-bold text-primary-custom"
                     href="#home"
                     onClick={(e) => handleNavClick(e, 'home')}
                 >
-                    FisioPro
+                    Ruben Rausa
+                    <span className="d-block fw-normal fs-6">Fisioterapista</span>
                 </a>
                 <button
                     className="navbar-toggler"
@@ -46,7 +47,7 @@ export function Navbar({ activeSection, setActiveSection }) {
                         {['home','about','services','testimonials','contact'].map((id) => (
                             <li className="nav-item" key={id}>
                                 <a
-                                    className={`nav-link ${activeSection === id ? 'active fw-bold text-success' : ''}`}
+                                    className={`nav-link ${activeSection === id ? 'active fw-bold text-primary-custom' : ''}`}
                                     href={`#${id}`}
                                     onClick={(e) => handleNavClick(e, id)}
                                 >

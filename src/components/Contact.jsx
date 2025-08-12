@@ -9,7 +9,7 @@ export default function Contact() {
     return (
         <section id="contact" className="py-5 bg-light">
             <div className="container">
-                <h2 className="text-center fw-bold text-success mb-4">Contatti</h2>
+                <h2 className="text-center fw-bold title-primary mb-4">Contatti</h2>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card shadow-sm border-0">
@@ -28,7 +28,7 @@ export default function Contact() {
                                         <textarea className="form-control" rows="4" value={form.message} onChange={(e)=>setForm({...form, message:e.target.value})} required></textarea>
                                     </div>
                                     <div className="d-grid">
-                                        <button className="btn btn-success btn-lg">Invia richiesta</button>
+                                        <button className="btn btn-primary-custom btn-lg">Invia richiesta</button>
                                     </div>
                                 </form>
                             </div>

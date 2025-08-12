@@ -6,7 +6,7 @@ export default function Hero() {
         <section
             id="home"
             className="hero d-flex align-items-center position-relative"
-            style={{minHeight: '100vh'}}
+            style={{ minHeight: '100vh' }}
         >
             {/* Immagine di sfondo */}
             <img
@@ -15,16 +15,16 @@ export default function Hero() {
                 className="w-100 h-100 position-absolute top-0 start-0"
                 style={{
                     objectFit: 'cover',
-                    objectPosition: 'top',
+                    objectPosition: 'center 20%', // sposta leggermente in basso il taglio
                     zIndex: 0
                 }}
             />
 
             {/* Contenuto in overlay */}
-            <div className="container text-white position-relative" style={{zIndex: 1}}>
+            <div className="container text-white position-relative" style={{ zIndex: 1 }}>
                 <div className="row align-items-center">
                     <div className="col-md-6">
-                        <h1 className="display-5 fw-bold text-success">
+                        <h1 className="display-5 fw-bold text-primary-custom">
                             Ritrova il tuo benessere
                         </h1>
                         <p className="lead mb-4">
@@ -32,10 +32,10 @@ export default function Hero() {
                         </p>
                         <a
                             href="#contact"
-                            className="btn btn-success btn-lg"
+                            className="btn btn-primary-custom btn-lg"
                             onClick={(e) => {
                                 e.preventDefault();
-                                document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
                             Prenota una visita

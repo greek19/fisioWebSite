@@ -3,7 +3,6 @@ import {Navbar} from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
-import Testimonials from "./components/Testimonials";
 import About from "./components/About";
 import Services from "./components/Services";
 
@@ -29,7 +28,6 @@ export default function App() {
                 <Hero />
                 <About />
                 <Services />
-                <Testimonials />
                 <Contact />
             </main>
             <Footer />
