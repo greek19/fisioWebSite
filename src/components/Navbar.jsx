@@ -1,7 +1,8 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
 
 export function Navbar({ activeSection, setActiveSection }) {
     const [expanded, setExpanded] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     const handleNavClick = (e, id) => {
         e.preventDefault();
@@ -12,10 +13,25 @@ export function Navbar({ activeSection, setActiveSection }) {
         setExpanded(false);
     };
 
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
     return (
-        <nav className="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
+        <nav
+            className={`navbar navbar-expand-md navbar-light fixed-top ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}
+            style={{ zIndex: 1000, transition: 'background-color 0.3s ease' }}
+        >
             <div className="container">
-                <a className="navbar-brand fw-bold text-success" href="#home" onClick={(e)=>handleNavClick(e,'home')}>FisioPro</a>
+                <a
+                    className="navbar-brand fw-bold text-success"
+                    href="#home"
+                    onClick={(e) => handleNavClick(e, 'home')}
+                >
+                    FisioPro
+                </a>
                 <button
                     className="navbar-toggler"
                     type="button"

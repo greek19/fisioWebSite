@@ -1,11 +1,22 @@
-/* Basic custom styles */
 html { scroll-behavior: smooth; }
-body { padding-top: 70px; background: #fff; }
-.hero { min-height: 72vh; display: flex; align-items: center; }
-.service-card { transition: transform .25s, box-shadow .25s; }
-.service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 
-/* Small responsive tweaks */
+body { background: #ffffff; margin: 0; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: top center;
+}
+
+/* Service card */
+.service-card { transition: transform .25s, box-shadow .25s; }
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
 @media (max-width: 767px) {
   .hero { padding-top: 30px; padding-bottom: 30px; }
 }
