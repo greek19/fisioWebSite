@@ -15,7 +15,7 @@ export default function Hero() {
                 className="w-100 h-100 position-absolute top-0 start-0"
                 style={{
                     objectFit: 'cover',
-                    objectPosition: 'center 20%', // sposta leggermente in basso il taglio
+                    objectPosition: 'center 20%',
                     zIndex: 0
                 }}
             />

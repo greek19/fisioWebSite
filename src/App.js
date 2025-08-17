@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import HowWork from "./components/HowWork";
 import Services from "./components/Services";
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
             <main>
                 <Hero />
                 <About />
+                <HowWork />
                 <Services />
                 <Contact />
             </main>

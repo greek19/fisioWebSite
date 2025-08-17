@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import logo from '../asset/img/logo.png'
 
 export function Navbar({ activeSection, setActiveSection }) {
     const [expanded, setExpanded] = useState(false);
@@ -25,6 +26,7 @@ export function Navbar({ activeSection, setActiveSection }) {
             style={{ zIndex: 1000, transition: 'background-color 0.3s ease' }}
         >
             <div className="container">
+                <img src={logo} alt="logo" id="logoImage" className="mx-3"/>
                 <a
                     className="navbar-brand fw-bold fw-900 text-primary-custom"
                     href="#home"
@@ -44,7 +46,7 @@ export function Navbar({ activeSection, setActiveSection }) {
 
                 <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
                     <ul className="navbar-nav ms-auto mb-2 mb-md-0">
-                        {['home','chi sono','servizi','contatti'].map((id) => (
+                        {['home','chi sono','come lavoro', 'servizi','contatti'].map((id) => (
                             <li className="nav-item " key={id}>
                                 <a
                                     className={`nav-link ${activeSection === id ? 'active fw-bold text-primary-custom' : 'fw-bold'}`}

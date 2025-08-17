@@ -7,14 +7,14 @@ export default function Card() {
             <div className="content">
                 <p className="heading">Ritrova il tuo benessere</p>
                 <p className="para">
-                    Trattamenti personalizzati, professionali e su misura sia a domicilio che in studio.
+                    Fisioterapia personalizzata, in studio e direttamente a casa tua.
                     <div>
                         <a
                             href="#contact"
                             className="btn btn-lg btn-card mt-5"
                             onClick={(e) => {
                                 e.preventDefault();
-                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                                document.getElementById('contatti').scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
                             Prenota una visita
