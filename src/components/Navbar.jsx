@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from '../asset/img/logo.png'
+import logo from '../asset/img/Rausa Ruben logo horizontal.png'
 
 export function Navbar({ activeSection, setActiveSection }) {
     const [expanded, setExpanded] = useState(false);
@@ -26,14 +26,12 @@ export function Navbar({ activeSection, setActiveSection }) {
             style={{ zIndex: 1000, transition: 'background-color 0.3s ease' }}
         >
             <div className="container">
-                <img src={logo} alt="logo" id="logoImage" className="mx-3"/>
                 <a
                     className="navbar-brand fw-bold fw-900 text-primary-custom"
                     href="#home"
                     onClick={(e) => handleNavClick(e, 'home')}
                 >
-                    Ruben Rausa
-                    <span className="d-block fw-normal fs-6">Fisioterapista</span>
+                    <img src={logo} id="logoImage" alt="logo" className="mx-3"/>
                 </a>
                 <button
                     className="navbar-toggler"
