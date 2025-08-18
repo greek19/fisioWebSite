@@ -1,4 +1,3 @@
-import Slider from "./Slider";
 import studio from "../asset/img/studio1.jpg";
 import studio2 from "../asset/img/studio2.png";
 import studio3 from "../asset/img/studio3.jpg";
