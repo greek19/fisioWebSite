@@ -10,24 +10,21 @@ export default function Services() {
             </h2>
 
             <div className="container">
-                <div className="row g-4 align-items-center">
-                    <div className="col text-primary-custom space-y-4">
+                <div className="row g-4 align-items-center text-primary-custom space-y-4 my-2">
+                    <div className="col-md-6 col-sm-12">
                         <h4>
                             FISIOTERAPIA IN STUDIO
                         </h4>
                         <h5>
                             Presso lo Studio Fisiosport Cadamuro collaboro con un team qualificato per offrirti trattamenti completi e mirati, in un ambiente accogliente e professionale.
                         </h5>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
                         <h4>
                             FISIOTERAPIA A DOMICILIO
                         </h4>
                         <h5>
                             Il servizio domiciliare è pensato per chi ha difficoltà a spostarsi o desidera ricevere trattamenti personalizzati nel proprio ambiente, senza rinunciare alla qualità.
-                            Sono attrezzato con tutto il necessario per poter trattare svariate problematiche anche a casa!
-
-                        </h5>
-                        <h5>
-                            Il servizio è attivo a Bolzano e zone limitrofe.
                         </h5>
                     </div>
                 </div>

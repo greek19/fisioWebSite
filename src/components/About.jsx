@@ -12,20 +12,13 @@ export default function About() {
                     <div className="col-md-7 text-primary-custom">
                         <h2 className="fw-bold text-primary-custom">Chi sono</h2>
                         <h5>
-                            Sono Ruben Rausa, fisioterapista con oltre 10 anni di esperienza nel trattamento di
-                            problematiche muscolo-scheletriche.
+                            Sono Ruben Rausa, fisioterapista specializzato in terapia manuale ortopedica (OMT).
+                            </h5>
+                        <h5>
+                            La mia missione è aiutare le persone a ritrovare benessere e autonomia: da oltre 10 anni offro trattamenti mirati e personalizzati, costruiti sulle esigenze di ogni paziente.
                         </h5>
                         <h5>
-                            Il mio obiettivo è aiutare le persone a muoversi
-                            meglio, vivere con meno dolore e recuperare la propria autonomia, nel modo più
-                            sicuro e rispettoso possibile. Le esperienze di lavoro con atleti di alto livello nel
-                            mondo del tennis e dell’hockey mi hanno arricchito professionalmente e mi hanno
-                            insegnato quanto sia importante un approccio preciso, individuale e orientato al
-                            risultato.
-                        </h5>
-                        <h5>
-                            Oggi metto queste competenze al servizio di sportivi e pazienti di ogni età, trattando
-                            un’ampia gamma di disturbi muscolo-scheletrici.
+                            Grazie alla formazione continua e alle esperienze maturate con atleti di hockey, sci e tennis, tratto un’ampia gamma di problematiche fisioterapiche e, quando necessario, indirizzo verso il professionista sanitario più adatto.
                         </h5>
                     </div>
                 </div>

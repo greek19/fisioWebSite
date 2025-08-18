@@ -1,6 +1,6 @@
 import Slider from "./Slider";
 import studio from "../asset/img/studio1.jpg";
-import studio2 from "../asset/img/studio2.jpg";
+import studio2 from "../asset/img/studio2.png";
 import studio3 from "../asset/img/studio3.jpg";
 import React from "react";
 import ImageSlider from "./ImageSlider";
@@ -63,10 +63,6 @@ export default function HowWork() {
                         <p>
                             Il mio sarà un approccio che integra la comprensione dei <strong>fattori psicologici</strong> che influenzano dolore e recupero.
                             Questo metodo permette di ottenere risultati più <strong>completi</strong> e <strong>duraturi</strong>.
-                        </p>
-                        <p>
-                            Ogni percorso inizia con un’<strong>attenta valutazione clinica</strong> per definire se la fisioterapia è il trattamento più indicato
-                            o se è necessario l’intervento di un altro <strong>professionista sanitario</strong>.
                         </p>
                         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 mt-12">
                             {services.map((s, i) => (
