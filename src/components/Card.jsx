@@ -6,7 +6,7 @@ export default function Card() {
         <div className="card-custom">
             <div className="content">
                 <p className="heading">Ritrova il tuo benessere</p>
-                <p className="para">
+                <p className="para fs-4">
                     Fisioterapia personalizzata, in studio e direttamente a casa tua.
                     <div>
                         <a

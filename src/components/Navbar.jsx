@@ -43,7 +43,7 @@ export function Navbar({ activeSection, setActiveSection }) {
                 </button>
 
                 <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
-                    <ul className="navbar-nav ms-auto mb-2 mb-md-0">
+                    <ul className="navbar-nav ms-auto mb-2 mb-md-0 d-lg-flex float-end ">
                         {['home','chi sono','come lavoro', 'servizi','contatti'].map((id) => (
                             <li className="nav-item " key={id}>
                                 <a
