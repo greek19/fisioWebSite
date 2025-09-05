@@ -15,11 +15,11 @@ export default function HowWork() {
         <section id="come lavoro" className="py-16 bg-gray-50">
             <div className="container">
                 <div className="row g-4">
-                    <div className="col text-primary-custom space-y-4 mt-2">
-                        <h2 className="text-3xl font-bold text-end mb-5 title-primary mt-4">
+                    <div className="col text-primary-custom space-y-4 px-3">
+                        <h2 className="text-3xl font-bold text-start title-primary mt-4">
                             Come lavoro
                         </h2>
-                        <h5 className='mb-3 mt-5'>
+                        <h5 className='mb-3'>
                             Ogni percorso inizia sempre con un’attenzione particolare alla tua salute. Prima di avviare qualsiasi trattamento, effettuo uno screening approfondito (screening for referral) per verificare che i tuoi sintomi rientrino nelle competenze fisioterapiche. Se emergono segnali che richiedono l’intervento di un medico o di un altro specialista, sarò il primo a indirizzarti con trasparenza: la priorità è che tu riceva le cure più adatte.
                         </h5>
                         <h5 className='mb-3'>
