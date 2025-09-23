@@ -30,7 +30,13 @@ export default function About() {
                             <li>Neurofisiologia applicata alle tecniche ad alta velocità</li>
                         </ul>
                         <h5>
-                            SCARICA IL MIO CV
+                            <a
+                                href="/file/cvRubenRausa.pdf"
+                                download
+                                className="text-reset text-decoration-none text-decoration-underline"
+                            >
+                                SCARICA IL MIO CV
+                            </a>
                         </h5>
                     </div>
                 </div>
