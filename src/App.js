@@ -1,38 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import {Navbar} from "./components/Navbar";
+import { useEffect, useState } from "react";
+import { Navbar } from "./components/Navbar";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Contact from "./components/Contact";
 import About from "./components/About";
 import HowWork from "./components/HowWork";
 import Services from "./components/Services";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
-    const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
-    useEffect(()=>{
-        const sections = document.querySelectorAll('section[id]');
-        const observer = new IntersectionObserver((entries)=>{
-            entries.forEach(entry => {
-                if (entry.isIntersecting) setActiveSection(entry.target.id);
-            });
-        }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
-
-        sections.forEach(s => observer.observe(s));
-        return () => observer.disconnect();
-    },[]);
-
-    return (
-        <div>
-            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-            <main>
-                <Hero />
-                <About />
-                <HowWork />
-                <Services />
-                <Contact />
-            </main>
-            <Footer />
-        </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-35% 0px -55%" },
     );
+
+    document
+      .querySelectorAll("main section[id]")
+      .forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <a className="skip-link" href="#main-content">
+        Vai al contenuto
+      </a>
+      <Navbar activeSection={activeSection} />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <HowWork />
+        <Services />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
 }

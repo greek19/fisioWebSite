@@ -1,70 +1,102 @@
-import React, { useState } from "react";
-import emailjs from '@emailjs/browser';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
-    const [form, setForm] = useState({ name: '', email: '', message: '' });
-    const [status, setStatus] = useState('');
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({ message: "", error: false });
+  const [sending, setSending] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const updateForm = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
 
-        const templateParams = {
-            name: form.name,
-            email: form.email,
-            message: form.message
-        };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setSending(true);
+    setStatus({ message: "", error: false });
+    try {
+      await emailjs.send(
+        "service_g9l93ft",
+        "template_tmudugs",
+        form,
+        "35KjVtv0RVYjBZDre",
+      );
+      setForm({ name: "", email: "", phone: "", message: "" });
+      setStatus({
+        message: "Richiesta inviata. Ti risponderò il prima possibile.",
+        error: false,
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus({
+        message: "Invio non riuscito. Riprova oppure contattami su WhatsApp.",
+        error: true,
+      });
+    } finally {
+      setSending(false);
+    }
+  };
 
-        emailjs.send('service_g9l93ft', 'template_tmudugs', templateParams, '35KjVtv0RVYjBZDre')
-            .then(() => {
-                setStatus('Email inviata con successo!');
-                setForm({ name: '', email: '', message: '' });
-            }, (error) => {
-                setStatus('Errore nell\'invio. Riprova più tardi.');
-                console.error('EmailJS error:', error);
-            });
-    };
+  return (
+    <section
+      id="contatti"
+      className="section contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div className="site-container contact-grid">
+        <div>
+          <p className="eyebrow">Contatti</p>
+          <h2 id="contact-title" className="section-title">
+            Iniziamo dal tuo obiettivo.
+          </h2>
+          <p className="section-lead">
+            Raccontami brevemente di cosa hai bisogno. Ti ricontatterò per capire
+            insieme il percorso più adatto.
+          </p>
+          <div className="contact-details">
+            <a className="contact-detail" href="tel:+393270504967">
+              <span aria-hidden="true">↗</span> +39 327 050 4967
+            </a>
+            <a className="contact-detail" href="mailto:rubenrausa@gmail.com">
+              <span aria-hidden="true">↗</span> rubenrausa@gmail.com
+            </a>
+            <span className="contact-detail">
+              <span aria-hidden="true">⌖</span> Via Valdagno 6A, Bolzano
+            </span>
+            <a className="contact-detail" href="https://wa.me/393270504967" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">↗</span> Scrivimi su WhatsApp
+            </a>
+          </div>
+        </div>
 
-    return (
-        <section id="contatti" className="py-5 bg-light">
-            <div className="container">
-                <h2 className="text-center fw-bold title-primary mb-4">Contatti</h2>
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card shadow-sm border-0">
-                            <div className="card-body">
-                                <form onSubmit={handleSubmit}>
-                                    <div className="mb-3">
-                                        <label className="form-label">Nome</label>
-                                        <input className="form-control" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">Email</label>
-                                        <input type="email" className="form-control" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">Messaggio</label>
-                                        <textarea className="form-control" rows="4" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required></textarea>
-                                    </div>
-                                    <div className="d-grid">
-                                        <button className="btn btn-primary-custom btn-lg">Invia richiesta</button>
-                                    </div>
-                                </form>
-                                {status && <div className="mt-3 text-center text-success fw-bold">{status}</div>}
-                            </div>
-                        </div>
-                        <div className="text-center text-muted small mt-3">
-                            Oppure <a
-                            href="https://wa.me/393270504967"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-decoration-none fw-bold text-success"
-                        >
-                            contattami su WhatsApp al +39 327 050 4967
-                        </a>
-                        </div>
-                    </div>
-                </div>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group">
+              <label className="form-label" htmlFor="name">Nome e cognome</label>
+              <input id="name" name="name" className="form-control" value={form.name} onChange={updateForm} autoComplete="name" required />
             </div>
-        </section>
-    );
+            <div className="form-group">
+              <label className="form-label" htmlFor="phone">Telefono (facoltativo)</label>
+              <input id="phone" name="phone" type="tel" className="form-control" value={form.phone} onChange={updateForm} autoComplete="tel" />
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="email">Email</label>
+            <input id="email" name="email" type="email" className="form-control" value={form.email} onChange={updateForm} autoComplete="email" required />
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="message">Come posso aiutarti?</label>
+            <textarea id="message" name="message" className="form-control" value={form.message} onChange={updateForm} required />
+          </div>
+          <button className="button button--primary submit-button" disabled={sending}>{sending ? "Invio in corso…" : "Invia la richiesta"}</button>
+          <p className={`form-status ${status.error ? "error" : ""}`} role="status" aria-live="polite">{status.message}</p>
+        </form>
+      </div>
+    </section>
+  );
 }
