@@ -1,110 +1,130 @@
-import React, { useState, useEffect, useCallback } from "react";
-import "../asset/css/custom.slider.css";
+import { useCallback, useEffect, useState } from "react";
 
-function ImageSlider({ children }) {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [slideDone, setSlideDone] = useState(true);
-    const [timeID, setTimeID] = useState(null);
+export default function ImageSlider({ images }) {
+  const [active, setActive] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const slideNext = useCallback(() => {
-        setActiveIndex((val) => {
-            if (val >= children.length - 1) {
-                return 0;
-            } else {
-                return val + 1;
-            }
-        });
-    }, [children.length]);
+  const move = useCallback((direction) => {
+    setActive((index) => (index + direction + images.length) % images.length);
+  }, [images.length]);
 
-    const slidePrev = useCallback(() => {
-        setActiveIndex((val) => {
-            if (val <= 0) {
-                return children.length - 1;
-            } else {
-                return val - 1;
-            }
-        });
-    }, [children.length]);
+  useEffect(() => {
+    if (!isOpen) return undefined;
 
-    useEffect(() => {
-        if (slideDone) {
-            setSlideDone(false);
-            setTimeID(
-                setTimeout(() => {
-                    slideNext();
-                    setSlideDone(true);
-                }, 5000)
-            );
-        }
-    }, [slideDone, slideNext]);
-
-    const AutoPlayStop = () => {
-        if (timeID > 0) {
-            clearTimeout(timeID);
-            setSlideDone(false);
-        }
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsOpen(false);
+      if (event.key === "ArrowLeft") move(-1);
+      if (event.key === "ArrowRight") move(1);
     };
 
-    const AutoPlayStart = () => {
-        if (!slideDone) {
-            setSlideDone(true);
-        }
-    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
 
-    return (
-        <div
-            className="container__slider"
-            onMouseEnter={AutoPlayStop}
-            onMouseLeave={AutoPlayStart}
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, move]);
+
+  const sliderControls = (modifier = "") => (
+    <>
+      <div className={`gallery-dots ${modifier}`}>
+        {images.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            className={`gallery-dot ${active === index ? "active" : ""}`}
+            onClick={() => setActive(index)}
+            aria-label={`Mostra immagine ${index + 1}`}
+            aria-current={active === index ? "true" : undefined}
+          />
+        ))}
+      </div>
+      <div className={`gallery-buttons ${modifier}`}>
+        <button
+          className="gallery-button"
+          type="button"
+          onClick={() => move(-1)}
+          aria-label="Immagine precedente"
         >
-            {children.map((item, index) => (
-                <div
-                    className={
-                        "slider__item slider__item-active-" + (activeIndex + 1)
-                    }
-                    key={index}
-                >
-                    {item}
-                </div>
-            ))}
+          ←
+        </button>
+        <button
+          className="gallery-button"
+          type="button"
+          onClick={() => move(1)}
+          aria-label="Immagine successiva"
+        >
+          →
+        </button>
+      </div>
+    </>
+  );
 
-            <div className="container__slider__links">
-                {children.map((item, index) => (
-                    <button
-                        key={index}
-                        className={
-                            activeIndex === index
-                                ? "container__slider__links-small container__slider__links-small-active"
-                                : "container__slider__links-small"
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setActiveIndex(index);
-                        }}
-                    ></button>
-                ))}
-            </div>
+  return (
+    <>
+      <div
+        className="gallery"
+        role="region"
+        aria-label="Galleria dello studio"
+        aria-roledescription="carousel"
+      >
+        <img
+          className="gallery-backdrop"
+          src={images[active]}
+          alt=""
+          aria-hidden="true"
+        />
+        <button
+          className="gallery-open"
+          type="button"
+          onClick={() => setIsOpen(true)}
+          aria-label={`Ingrandisci immagine ${active + 1}`}
+        >
+          <img
+            className="gallery-image"
+            src={images[active]}
+            width="900"
+            height="1125"
+            loading="lazy"
+            alt={`Studio fisioterapico, immagine ${active + 1} di ${images.length}`}
+          />
+          <span className="gallery-zoom" aria-hidden="true">↗</span>
+        </button>
+        <div className="gallery-controls">{sliderControls()}</div>
+      </div>
 
-            <button
-                className="slider__btn-next"
-                onClick={(e) => {
-                    e.preventDefault();
-                    slideNext();
-                }}
-            >
-                {">"}
-            </button>
-            <button
-                className="slider__btn-prev"
-                onClick={(e) => {
-                    e.preventDefault();
-                    slidePrev();
-                }}
-            >
-                {"<"}
-            </button>
+      {isOpen && (
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Galleria immagini a schermo intero"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setIsOpen(false);
+          }}
+        >
+          <button
+            className="lightbox-close"
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Chiudi galleria"
+            autoFocus
+          >
+            ×
+          </button>
+          <img
+            className="lightbox-image"
+            src={images[active]}
+            alt={`Studio fisioterapico, immagine ${active + 1} di ${images.length}`}
+          />
+          <div className="lightbox-controls">{sliderControls("lightbox-control")}</div>
+          <p className="lightbox-counter" aria-live="polite">
+            {active + 1} / {images.length}
+          </p>
         </div>
-    );
+      )}
+    </>
+  );
 }
-
-export default ImageSlider;
